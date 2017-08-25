@@ -7,8 +7,8 @@ import Book from './Book'
 
 class CurrentlyReading extends Component {
 
-    updateBookShelf = (Book, Shelf) => {
-        this.props.updateReadShelf(Book, Shelf);
+    updateBookShelf = (Book, Shelf, isBookInShelf) => {
+        this.props.updateReadShelf(Book, Shelf, isBookInShelf);
     }
 
     render() {

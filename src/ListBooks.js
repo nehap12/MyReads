@@ -3,23 +3,24 @@
  */
 
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import CurrentlyReading from './CurrentlyReading'
 import WantToRead from './WantToRead'
 import Read from './read'
 
 class ListBooks extends Component {
 
-    updateShelf = (Book, Shelf) => {
-        this.props.updateShelfAPI(Book, Shelf);
-    }
+    updateShelf = (Book, Shelf, isBookInShelf) => {
+        this.props.updateShelfAPI(Book, Shelf, isBookInShelf);
+    };
 
 
     render() {
-        const { books } = this.props
+        const { books } = this.props;
         let currentlyReading, wantToRead, read;
-        currentlyReading = books.filter(book => book.shelf === "currentlyReading")
-        wantToRead = books.filter((book) => book.shelf === "wantToRead")
-        read = books.filter((book) => book.shelf === "read")
+        currentlyReading = books.filter(book => book.shelf === "currentlyReading");
+        wantToRead = books.filter((book) => book.shelf === "wantToRead");
+        read = books.filter((book) => book.shelf === "read");
 
         return (
             <div className="list-books">
@@ -47,6 +48,14 @@ class ListBooks extends Component {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="open-search">
+                    <Link
+                        to="/search"
+                        className="search"
+                    >
+                        Add a book
+                    </Link>
                 </div>
             </div>
         )
